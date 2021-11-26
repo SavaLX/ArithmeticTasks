@@ -4,16 +4,18 @@ import java.util.Scanner;
 
 public class IoData {
 
-    public int inPut() {
+    public int inPutInt() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number: ");
-
-        int i;
-        return i = sc.nextInt();
+        return sc.nextInt();
     }
 
-    public static void doGreeting() {
-        System.out.println("Hello! You can choose which of 5 linear tasks you want to solve, please enter the task " +
-                "number:");
+    public double inPutDouble() {
+        Scanner sc = new Scanner(System.in);
+        return sc.nextDouble();
+    }
+
+    public String inPutSymbol() {
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
     }
 }

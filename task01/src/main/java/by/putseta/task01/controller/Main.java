@@ -2,6 +2,8 @@ package by.putseta.task01.controller;
 
 import by.putseta.task01.entity.Data;
 import by.putseta.task01.service.ArithmeticService;
+import by.putseta.task01.service.ExpressionService;
+import by.putseta.task01.service.GeometricService;
 import by.putseta.task01.view.IoData;
 
 public class Main {
@@ -10,21 +12,67 @@ public class Main {
         Data data = new Data();
         IoData ioData = new IoData();
 
+        System.out.print("Hello! You can choose which of 5 linear tasks ( Available tasks : № 5 , 7, 19, 21, 33) " +
+                "you want to solve, please enter the task number:");
 
-        IoData.doGreeting();
+        // TODO: написать это в цикле while
 
-        switch (ioData.inPut()) {
-            case (10):
-                data.add(ioData.inPut()); // put first number in collection
-                data.add(ioData.inPut()); // put second number in collection
+        switch (ioData.inPutInt()) {
+            case (5):
+                System.out.print("Enter the first number: ");
+                data.add(ioData.inPutInt()); // put first number in collection
+                System.out.print("Enter the second number: ");
+                data.add(ioData.inPutInt()); // put second number in collection
 
                 ArithmeticService average = new ArithmeticService();
                 System.out.println("The average value = " + average.countAverageValue(data.get(0), data.get(1)));
+                // count the average of two numbers
+
+                // TODO: написать код для удаления значений из коллекц
+//                data.remove(0);  // remove the first entered numbers from collection
+//                data.remove(1);  // remove the second entered numbers from collection
+
                 break;
-            case (5):
-                System.out.println("hi i am in case 5");
+            case (7):
+                System.out.print("Enter the length of rectangle: ");
+                data.add(ioData.inPutInt()); // put number in collection
+
+                GeometricService reactangle = new GeometricService();
+                System.out.println("The area of rectangle = " + reactangle.countAreaOfRectangle(data.get(0)));
+                // count the area of rectangle
+
+                // TODO: написать код для удаления значений из коллекц
+                break;
+            case (19):
+                System.out.println("Enter the side length of equilateral triangle: ");
+                data.add(ioData.inPutInt());  // put number in collection
+
+                GeometricService triangle = new GeometricService();
+                System.out.println("Equilateral triangle area = " + triangle.countAreaOfTriangle(data.get(0)) + "\n" +
+                        "Equilateral triangle height = " + triangle.countHeightOftriangle(data.get(0)) + "\n" +
+                        "The radius of the inscribed circle in an equilateral triangle = " +
+                        triangle.countInscridedCircleRadius(data.get(0)) + "\n" +
+                        "The radius of the circumscribed circle in an equilateral triangle = "
+                        + triangle.countCircumscribedCircleRadius(data.get(0)));
+                break;
+            case (21):
+                System.out.println("Enter the real number R of the form nnn,ddd: ");
+                data.add(ioData.inPutDouble());
+
+                ExpressionService swap = new ExpressionService();
+                System.out.println("The resulting number when changing the fractional and integer parts = " +
+                        swap.swapFractionalAndIntegerParts(data.get(0)));
+                break;
+            case (33):
+                System.out.println("Enter the symbol: ");
+
+                ExpressionService symbol = new ExpressionService();
+                System.out.println("The ordinal number of the character in the Unicode table = " +
+                        symbol.findOrdinalNumberOfSymbol(ioData.inPutSymbol()));
+                System.out.println("The previous symbol is: " + symbol.displayPreviousCharacter());
+                System.out.println("The next symbol is: " + symbol.displayNextCharacter());
+
+                break;
         }
-
     }
-
 }

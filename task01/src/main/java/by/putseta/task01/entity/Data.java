@@ -13,4 +13,8 @@ public class Data {
     public double get(int index) {
         return list.get(index);
     }
+
+    public void remove(int index) {
+        list.remove(index);
+    }
 }

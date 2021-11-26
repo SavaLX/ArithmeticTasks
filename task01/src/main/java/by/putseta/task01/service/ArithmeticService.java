@@ -4,4 +4,5 @@ public class ArithmeticService {
     public double countAverageValue(double x, double y) {
         return (x + y) / 2;
     }
+
 }
