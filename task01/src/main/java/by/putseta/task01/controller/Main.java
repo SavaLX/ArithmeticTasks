@@ -16,63 +16,70 @@ public class Main {
                 "you want to solve, please enter the task number:");
 
         // TODO: написать это в цикле while
+        do {
+            switch (ioData.inPutInt()) {
+                case (5):
+                    System.out.print("Enter the first number: ");
+                    data.add(ioData.inPutInt()); // put first number in collection
+                    System.out.print("Enter the second number: ");
+                    data.add(ioData.inPutInt()); // put second number in collection
 
-        switch (ioData.inPutInt()) {
-            case (5):
-                System.out.print("Enter the first number: ");
-                data.add(ioData.inPutInt()); // put first number in collection
-                System.out.print("Enter the second number: ");
-                data.add(ioData.inPutInt()); // put second number in collection
+                    ArithmeticService average = new ArithmeticService();
+                    System.out.println("The average value = " + average.countAverageValue(data.get(0), data.get(1)));
+                    // count the average of two numbers
 
-                ArithmeticService average = new ArithmeticService();
-                System.out.println("The average value = " + average.countAverageValue(data.get(0), data.get(1)));
-                // count the average of two numbers
-
-                // TODO: написать код для удаления значений из коллекц
+                    // TODO: написать код для удаления значений из коллекц
 //                data.remove(0);  // remove the first entered numbers from collection
 //                data.remove(1);  // remove the second entered numbers from collection
 
-                break;
-            case (7):
-                System.out.print("Enter the length of rectangle: ");
-                data.add(ioData.inPutInt()); // put number in collection
+                    break;
+                case (7):
+                    System.out.print("Enter the length of rectangle: ");
+                    data.add(ioData.inPutInt()); // put number in collection
 
-                GeometricService reactangle = new GeometricService();
-                System.out.println("The area of rectangle = " + reactangle.countAreaOfRectangle(data.get(0)));
-                // count the area of rectangle
+                    GeometricService reactangle = new GeometricService();
+                    System.out.println("The area of rectangle = " + reactangle.countAreaOfRectangle(data.get(0)));
+                    // count the area of rectangle
 
-                // TODO: написать код для удаления значений из коллекц
-                break;
-            case (19):
-                System.out.println("Enter the side length of equilateral triangle: ");
-                data.add(ioData.inPutInt());  // put number in collection
+                    // TODO: написать код для удаления значений из коллекц
+                    break;
+                case (19):
+                    System.out.println("Enter the side length of equilateral triangle: ");
+                    data.add(ioData.inPutInt());  // put number in collection
 
-                GeometricService triangle = new GeometricService();
-                System.out.println("Equilateral triangle area = " + triangle.countAreaOfTriangle(data.get(0)) + "\n" +
-                        "Equilateral triangle height = " + triangle.countHeightOftriangle(data.get(0)) + "\n" +
-                        "The radius of the inscribed circle in an equilateral triangle = " +
-                        triangle.countInscridedCircleRadius(data.get(0)) + "\n" +
-                        "The radius of the circumscribed circle in an equilateral triangle = "
-                        + triangle.countCircumscribedCircleRadius(data.get(0)));
-                break;
-            case (21):
-                System.out.println("Enter the real number R of the form nnn,ddd: ");
-                data.add(ioData.inPutDouble());
+                    GeometricService triangle = new GeometricService();
+                    System.out.println("Equilateral triangle area = " + triangle.countAreaOfTriangle(data.get(0)) + "\n" +
+                            "Equilateral triangle height = " + triangle.countHeightOftriangle(data.get(0)) + "\n" +
+                            "The radius of the inscribed circle in an equilateral triangle = " +
+                            triangle.countInscridedCircleRadius(data.get(0)) + "\n" +
+                            "The radius of the circumscribed circle in an equilateral triangle = "
+                            + triangle.countCircumscribedCircleRadius(data.get(0)));
+                    break;
+                case (21):
+                    System.out.println("Enter the real number R of the form nnn,ddd: ");
+                    data.add(ioData.inPutDouble());
 
-                ExpressionService swap = new ExpressionService();
-                System.out.println("The resulting number when changing the fractional and integer parts = " +
-                        swap.swapFractionalAndIntegerParts(data.get(0)));
-                break;
-            case (33):
-                System.out.println("Enter the symbol: ");
+                    ExpressionService swap = new ExpressionService();
+                    System.out.println("The resulting number when changing the fractional and integer parts = " +
+                            swap.swapFractionalAndIntegerParts(data.get(0)));
+                    break;
+                case (33):
+                    System.out.println("Enter the symbol: ");
 
-                ExpressionService symbol = new ExpressionService();
-                System.out.println("The ordinal number of the character in the Unicode table = " +
-                        symbol.findOrdinalNumberOfSymbol(ioData.inPutSymbol()));
-                System.out.println("The previous symbol is: " + symbol.displayPreviousCharacter());
-                System.out.println("The next symbol is: " + symbol.displayNextCharacter());
+                    ExpressionService symbol = new ExpressionService();
+                    System.out.println("The ordinal number of the character in the Unicode table = " +
+                            symbol.findOrdinalNumberOfSymbol(ioData.inPutSymbol()));
+                    System.out.println("The previous symbol is: " + symbol.displayPreviousCharacter());
+                    System.out.println("The next symbol is: " + symbol.displayNextCharacter());
 
-                break;
-        }
+                    break;
+                default:
+                    System.out.println("This task doesn't exist");
+                    break;
+            }
+            System.out.print("Enter another number of task or enter the 0 to exit from program: ");
+            // TODO: при втором выборе задания клиента просит написать два раза номер задания( дописать код чтобы решить)
+        } while (ioData.inPutInt() != 0);
+        System.out.println("You had left from program");
     }
 }
