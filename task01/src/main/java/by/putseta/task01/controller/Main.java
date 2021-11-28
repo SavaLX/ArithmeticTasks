@@ -12,12 +12,13 @@ public class Main {
         Data data = new Data();
         IoData ioData = new IoData();
 
-        System.out.print("Hello! You can choose which of 5 linear tasks ( Available tasks : № 5 , 7, 19, 21, 33) " +
-                "you want to solve, please enter the task number:");
-
-        // TODO: написать это в цикле while
+        System.out.println("Hello! You can choose which of 5 linear tasks ( Available tasks : № 5 , 7, 19, 21, 33) " +
+                "you want to solve, please enter the task number");
+        int taskNumber;
         do {
-            switch (ioData.inPutInt()) {
+            System.out.print("Enter number of task or enter the 0 to exit from program: ");
+            taskNumber = ioData.inPutInt();
+            switch (taskNumber) {
                 case (5):
                     System.out.print("Enter the first number: ");
                     data.add(ioData.inPutInt()); // put first number in collection
@@ -28,20 +29,19 @@ public class Main {
                     System.out.println("The average value = " + average.countAverageValue(data.get(0), data.get(1)));
                     // count the average of two numbers
 
-                    // TODO: написать код для удаления значений из коллекц
-//                data.remove(0);  // remove the first entered numbers from collection
-//                data.remove(1);  // remove the second entered numbers from collection
+                    data.remove(0);  // remove the first entered numbers from collection
+                    data.remove(0);  // remove the second entered numbers from collection
 
                     break;
                 case (7):
                     System.out.print("Enter the length of rectangle: ");
                     data.add(ioData.inPutInt()); // put number in collection
 
-                    GeometricService reactangle = new GeometricService();
-                    System.out.println("The area of rectangle = " + reactangle.countAreaOfRectangle(data.get(0)));
+                    GeometricService rectangle = new GeometricService();
+                    System.out.println("The area of rectangle = " + rectangle.countAreaOfRectangle(data.get(0)));
                     // count the area of rectangle
 
-                    // TODO: написать код для удаления значений из коллекц
+                    data.remove(0);  // remove the entered numbers from collection
                     break;
                 case (19):
                     System.out.println("Enter the side length of equilateral triangle: ");
@@ -49,11 +49,12 @@ public class Main {
 
                     GeometricService triangle = new GeometricService();
                     System.out.println("Equilateral triangle area = " + triangle.countAreaOfTriangle(data.get(0)) + "\n" +
-                            "Equilateral triangle height = " + triangle.countHeightOftriangle(data.get(0)) + "\n" +
+                            "Equilateral triangle height = " + triangle.countHeightOfTriangle(data.get(0)) + "\n" +
                             "The radius of the inscribed circle in an equilateral triangle = " +
-                            triangle.countInscridedCircleRadius(data.get(0)) + "\n" +
+                            triangle.countInscribedCircleRadius(data.get(0)) + "\n" +
                             "The radius of the circumscribed circle in an equilateral triangle = "
                             + triangle.countCircumscribedCircleRadius(data.get(0)));
+                    data.remove(0);  // remove the entered numbers from collection
                     break;
                 case (21):
                     System.out.println("Enter the real number R of the form nnn,ddd: ");
@@ -62,6 +63,7 @@ public class Main {
                     ExpressionService swap = new ExpressionService();
                     System.out.println("The resulting number when changing the fractional and integer parts = " +
                             swap.swapFractionalAndIntegerParts(data.get(0)));
+                    data.remove(0);  // remove the entered numbers from collection
                     break;
                 case (33):
                     System.out.println("Enter the symbol: ");
@@ -72,14 +74,15 @@ public class Main {
                     System.out.println("The previous symbol is: " + symbol.displayPreviousCharacter());
                     System.out.println("The next symbol is: " + symbol.displayNextCharacter());
 
+                    data.remove(0);  // remove the entered numbers from collection
+                    break;
+                case (0):
                     break;
                 default:
                     System.out.println("This task doesn't exist");
                     break;
             }
-            System.out.print("Enter another number of task or enter the 0 to exit from program: ");
-            // TODO: при втором выборе задания клиента просит написать два раза номер задания( дописать код чтобы решить)
-        } while (ioData.inPutInt() != 0);
+        } while (taskNumber != 0);
         System.out.println("You had left from program");
     }
 }

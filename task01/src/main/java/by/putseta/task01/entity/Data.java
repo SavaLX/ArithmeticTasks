@@ -1,12 +1,14 @@
 package by.putseta.task01.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Data {
 
-    ArrayList<Double> list = new ArrayList<>();
+    List<Double> list = new ArrayList<>();
 
     public void add(double i) {
+        //TODO: сделать проверку входных данных
         list.add(i);
     }
 

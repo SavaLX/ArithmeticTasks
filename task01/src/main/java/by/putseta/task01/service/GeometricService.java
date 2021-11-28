@@ -6,18 +6,15 @@ public class GeometricService {
         return 3 * x;
     }
 
-    /*
- Counting values in an equilateral triangle
- */
     public double countAreaOfTriangle(double x) {
         return x * x * Math.sqrt(3) / 4;
     }
 
-    public double countHeightOftriangle(double x) {
+    public double countHeightOfTriangle(double x) {
         return x * Math.sqrt(3) / 2;
     }
 
-    public double countInscridedCircleRadius(double x) {
+    public double countInscribedCircleRadius(double x) {
         return x * Math.sqrt(3) / 6;
     }
 
