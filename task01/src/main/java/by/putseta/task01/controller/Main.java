@@ -7,7 +7,20 @@ import by.putseta.task01.service.GeometricService;
 import by.putseta.task01.view.IoData;
 
 public class Main {
+
+    // Define a static logger variable so that it references the
+    // Logger instance named "MyApp".
+//    private static final Logger LOGGER = LogManager.getLogger(Main.class);
+
     public static void main(String[] args) {
+
+        // Set up a simple configuration that logs on the console.
+//        LOGGER.trace("Entering application.");
+//        ArithmeticService arithmeticService = new ArithmeticService();
+//        try {(!bar.doIt()) {
+//            LOGGER.error("Didn't do it.");
+//        }
+//        LOGGER.trace("Exiting application.");
 
         Data data = new Data();
         IoData ioData = new IoData();
