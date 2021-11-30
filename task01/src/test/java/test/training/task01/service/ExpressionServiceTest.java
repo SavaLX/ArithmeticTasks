@@ -1,10 +1,9 @@
 package test.training.task01.service;
 
 import by.putseta.task01.service.ExpressionService;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import static org.testng.AssertJUnit.assertEquals;
 
 public class ExpressionServiceTest {
 
@@ -23,6 +22,6 @@ public class ExpressionServiceTest {
     @Test(description = "check for find ordinary number of symbol", dataProvider = "dataForSwapNumberParts")
     public void checkOrdinaryNumber(double arg[], double expected) {
         double actual = expressionService.swapFractionalAndIntegerParts(arg[0]);
-        assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected);
     }
 }

@@ -13,7 +13,7 @@ public class RunnerBranchingTasks {
         IoData ioData = new IoData();
 
         System.out.println("Now you can choose which of 5 branching tasks ( Available tasks : № 5 , 7, 19, 21, 33) " +
-                "you want to solve, please enter the task number");
+                "you want to solve");
         int taskNumber;
         do {
             System.out.print("Enter number of task or enter the 0 to exit from program: ");

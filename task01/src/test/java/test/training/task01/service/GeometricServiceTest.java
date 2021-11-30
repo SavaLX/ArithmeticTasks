@@ -1,10 +1,9 @@
 package test.training.task01.service;
 
 import by.putseta.task01.service.GeometricService;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import static org.testng.AssertJUnit.assertEquals;
 
 public class GeometricServiceTest {
 
@@ -22,6 +21,6 @@ public class GeometricServiceTest {
     @Test(description = "check for counting the area of triangle", dataProvider = "dataForCountAreaOfRectangle")
     public void checkAreaOfTriangle(double arg[], double expected) {
         double actual = geometricService.countAreaOfRectangle(arg[0]);
-        assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected);
     }
 }
