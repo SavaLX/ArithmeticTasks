@@ -5,4 +5,8 @@ public class ArithmeticService {
         return (x + y) / 2;
     }
 
+    public double countExpressionModule(double a, double b, double c, double x) {
+        return a * x * x + b * x + c;
+    }
+
 }
