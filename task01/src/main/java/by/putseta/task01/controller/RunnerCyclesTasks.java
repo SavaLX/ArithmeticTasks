@@ -1,91 +1,80 @@
 package by.putseta.task01.controller;
 
 import by.putseta.task01.entity.Data;
-import by.putseta.task01.service.ArithmeticService;
 import by.putseta.task01.service.ExpressionService;
 import by.putseta.task01.view.IoData;
 
 public class RunnerCyclesTasks {
+    private final IoData ioData = new IoData();
 
     public void runCyclesTask() {
 
-        Data data = new Data();
-        IoData ioData = new IoData();
-
-        System.out.println("Now you can choose which of 5 branching tasks ( Available tasks : № 5 , 7, 19, 21, 33) " +
-                "you want to solve");
+        Data data;
         int taskNumber;
+
+        System.out.println("And finally you can choose which of 5 cycles tasks ( Available tasks : № 5 , 7, 19, 21, 33) " +
+                "you want to solve");
+
         do {
             System.out.print("Enter number of task or enter the 0 to exit from program: ");
             taskNumber = ioData.inPutInt();
             switch (taskNumber) {
-                case (5):
-                    System.out.print("Enter the first number: ");
-                    data.add(ioData.inPutInt()); // put first number in collection
-                    System.out.print("Enter the second number: ");
-                    data.add(ioData.inPutInt()); // put second number in collection
+                case (5):   /* Use the while statement to write a program for determining the sum of all odd numbers in
+                range from 1 to 99 inclusive. */
 
-                    ExpressionService smallerNumber = new ExpressionService();
-                    System.out.println("The smaller number = " + smallerNumber.findSmallerNumber(data.get(0), data.get(1)));
+                    ExpressionService oddNumber = new ExpressionService();
 
-                    data.remove(0);  // remove the first entered numbers from collection
-                    data.remove(0);  // remove the second entered numbers from collection
+                    System.out.println("Sum of odd numbers from 1 to 99 =" + oddNumber.findSumOfOddNumbers());
 
                     break;
-                case (7):
+                case (7):   /* Calculate the values of the function on the segment [a, b] with step h:  */
+
+                    data = new Data();
+
                     System.out.print("Enter the value of 'a': ");
-                    data.add(ioData.inPutInt());
+                    data.add(ioData.inPutDouble());  // put value 'a' in collection
                     System.out.print("Enter the value of 'b': ");
-                    data.add(ioData.inPutInt());
-                    System.out.print("Enter the value of 'c': ");
-                    data.add(ioData.inPutInt());
-                    System.out.print("Enter the value of 'x': ");
-                    data.add(ioData.inPutInt());
+                    data.add(ioData.inPutDouble());  // put value 'b' in collection
+                    System.out.print("Enter the value of 'h': ");
+                    data.add(ioData.inPutDouble());  // put value 'h' in collection
 
-                    ArithmeticService module = new ArithmeticService();
-                    System.out.println("The result of expression module = " + module.countExpressionModule(data.get(0),
-                            data.get(1), data.get(2), data.get(3)));
+                    ExpressionService function = new ExpressionService();
+                    function.calculateFunctionValues(data.get(0), data.get(1), data.get(2));
 
-
-                    data.remove(0);
-                    data.remove(0);
-                    data.remove(0);
-                    data.remove(0);
                     break;
-                case (19):
-                    System.out.print("Enter the value of 'a': ");
-                    data.add(ioData.inPutInt());
-                    System.out.print("Enter the value of 'b': ");
-                    data.add(ioData.inPutInt());
-                    System.out.print("Enter the value of 'c': ");
-                    data.add(ioData.inPutInt());
+                case (19):  /* Given a number of series and some number e. Find the sum of those terms of the series whose
+                 modulus is greater than or is equal to a given e. */
 
-                    ExpressionService positiveCount = new ExpressionService();
-                    System.out.println("The number of positive numbers = " + positiveCount.countPositiveNumbers(data.get(0),
-                            data.get(1), data.get(2)));
+                    data = new Data();
 
+                    System.out.print("Enter the value of 'e': ");
+                    data.add(ioData.inPutDouble());  // put value 'e' in collection
+                    System.out.print("Enter the value of 'n': ");
+                    data.add(ioData.inPutDouble());  // put value 'n' in collection
 
-                    data.remove(0);
-                    data.remove(0);
-                    data.remove(0);
+                    ExpressionService member = new ExpressionService();
+                    System.out.println("The sum = " + member.findSumOfMembersOfSeries(data.get(0),
+                            data.get(1)));
+
                     break;
-                case (21):
-                    System.out.println("Who are you: boy or girl? Enter B or G");
-                    data.addString(ioData.inPutSymbol());
+                case (21):   /* Write a program for calculating the values of the function F (x) on the segment [a, b]
+                with step h. Result represent in the form of a table, the first column of which is the values of the
+                argument, the second is the corresponding function values: F (x) = x - sin (x)   */
 
-                    ExpressionService flatterer = new ExpressionService();
-                    System.out.println(flatterer.determineGender(data.getString(0)));
+                    ExpressionService functionValues = new ExpressionService();
+                    functionValues.calculateFunctionValues();
 
-                    data.removeString(0);  // remove the entered numbers from collection
                     break;
-                case (33):
-                    System.out.println("Enter the password: ");
-                    data.add(ioData.inPutDouble());
+                case (33):   /* Find the largest digit of a given natural number.  */
 
-                    ExpressionService levelAcces = new ExpressionService();
-                    System.out.println("Your level of acces = " + levelAcces.definitionOfAccessLevel(data.get(0)));
+                    data = new Data();
 
-                    data.remove(0);  // remove the entered numbers from collection
+                    System.out.println("Enter the number: ");
+                    data.add(ioData.inPutDoublePositive());  // put entered number in collection
+
+                    ExpressionService largestDigit = new ExpressionService();
+                    System.out.println("The largest digit in number = " + largestDigit.findLargestDigitInNumber((int) data.get(0)));
+
                     break;
                 case (0):
                     break;

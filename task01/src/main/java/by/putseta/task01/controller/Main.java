@@ -14,6 +14,7 @@ public class Main {
 
         runnerLinearTasks.runLinearTask();
         runnerBranchingTasks.runBranchingTask();
+        runnerCyclesTasks.runCyclesTask();
 
     }
 }
