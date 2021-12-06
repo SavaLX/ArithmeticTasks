@@ -4,6 +4,9 @@ import by.putseta.task01.validation.Validation;
 
 import java.util.Scanner;
 
+/**
+ * Class for input and output values
+ */
 public class IoData {
 
     private static final String INCORRECT_DATA = "Incorrect data please, try again: ";

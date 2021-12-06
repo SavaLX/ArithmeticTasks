@@ -5,9 +5,17 @@ import by.putseta.task01.service.ArithmeticService;
 import by.putseta.task01.service.ExpressionService;
 import by.putseta.task01.view.IoData;
 
+/**
+ * Class for run the branching tasks
+ */
+
 public class RunnerBranchingTasks {
+
     private final IoData ioData = new IoData();
 
+    /**
+     * Here start point of solving branching task
+     */
     public void runBranchingTask() {
 
         Data data;

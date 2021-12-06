@@ -2,30 +2,73 @@ package by.putseta.task01.service;
 
 import by.putseta.task01.entity.Data;
 
+/**
+ * Class for solving different expression tasks
+ */
 public class ExpressionService {
+
     private final Data data = new Data();
 
+    /**
+     * Method for swap fractional and integer parts of number
+     *
+     * @param x some entered number
+     * @return entered number with swapped fractional and integer parts
+     */
     public double swapFractionalAndIntegerParts(double x) {
         return (x * 1000) % 1000 + (int) x / 1000.0;
     }
 
-    public double findOrdinalNumberOfSymbol(String x) { // Determines the ordinary number of character in the table Unicode
+    /**
+     * Method for determining the ordinary number of character in the table Unicode
+     *
+     * @param x same entered number
+     * @return the ordinary number of character based on table Unicode
+     */
+    public double findOrdinalNumberOfSymbol(String x) {
         data.add(x.charAt(0));
         return (data.get(0));
     }
 
+    /**
+     * Method for determining the previous character
+     *
+     * @return the previous character
+     * @see #findOrdinalNumberOfSymbol(String)
+     */
     public char displayPreviousCharacter() {   // Determines the previous character in the table Unicode
         return (char) (data.get(0) - 1);
     }
 
+    /**
+     * Method for determining the next character
+     *
+     * @return the next character
+     * @see #findOrdinalNumberOfSymbol(String)
+     */
     public char displayNextCharacter() {      // Determines the next character in the table Unicode
         return (char) (data.get(0) + 1);
     }
 
-    public double findSmallerNumber(double x, double y) {   // finds the smallest number of two
+    /**
+     * Method for finding the smallest number of two
+     *
+     * @param x first entered number
+     * @param y second entered number
+     * @return smallest number
+     */
+    public double findSmallerNumber(double x, double y) {
         return x > y ? y : x;
     }
 
+    /**
+     * Method for counting the number of positive numbers
+     *
+     * @param a first entered number
+     * @param b second entered number
+     * @param c third entered number
+     * @return number of positive numbers
+     */
     public int countPositiveNumbers(double a, double b, double c) {  // counts the number of positive numbers
         int count = 0;
         if (a > 0) {
@@ -40,7 +83,13 @@ public class ExpressionService {
         return count;
     }
 
-    public String determineGender(String x) {  // determines the gender of the user
+    /**
+     * Method for determining users gender
+     *
+     * @param x entered 'B' or 'G'
+     * @return returns a response based on gender of user
+     */
+    public String determineGender(String x) {
         if (x.equalsIgnoreCase("B")) {
             return "I like boys";
         } else if (x.equalsIgnoreCase("G")) {
@@ -50,7 +99,13 @@ public class ExpressionService {
         }
     }
 
-    public String definitionOfAccessLevel(double x) {  // defines access to the database by password
+    /**
+     * Method for defining access to the database by password
+     *
+     * @param x entered password
+     * @return access to the database
+     */
+    public String definitionOfAccessLevel(double x) {
         return switch ((int) x) {
             case 9583, 1747 -> "A,B,C";
             case 3331, 7922 -> "B,C";
@@ -59,6 +114,11 @@ public class ExpressionService {
         };
     }
 
+    /**
+     * Method for finding the sum of odd numbers from 1 to 99
+     *
+     * @return the sum of odd numbers from 1 to 99
+     */
     public int findSumOfOddNumbers() {   // finds the sum of odd numbers from 1 to 99
         int i = 1;
         int sum = 0;
