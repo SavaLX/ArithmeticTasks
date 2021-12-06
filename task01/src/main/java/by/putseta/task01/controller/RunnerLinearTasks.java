@@ -17,7 +17,7 @@ public class RunnerLinearTasks {
                 "you want to solve");
 
         do {
-            System.out.print("Enter number of task or enter the 0 to exit from program: ");
+            System.out.print("Enter number of task or enter the 0 to exit from linear task and go to branching tasks: ");
             taskNumber = ioData.inPutInt();
             switch (taskNumber) {
                 case (5):     //Create an algorithm for finding the arithmetic mean of two numbers
@@ -35,7 +35,7 @@ public class RunnerLinearTasks {
                     break;
                 case (7):     //You are given a rectangle whose width is half the length. Find the area of a rectangle
 
-                    data = new Data(); //TODO : length not zero
+                    data = new Data();
 
                     System.out.print("Enter the length of rectangle: ");
                     data.add(ioData.inPutDoublePositive()); // put length in collection
@@ -47,7 +47,7 @@ public class RunnerLinearTasks {
                 case (19):    /*The side of an equilateral triangle is given. Find the area of this triangle,
                 its height, inscribed radii and circumscribed circles.*/
 
-                    data = new Data();  //TODO : length not zero
+                    data = new Data();
 
                     System.out.print("Enter the side length of equilateral triangle: ");
                     data.add(ioData.inPutDoublePositive());  // put side length in collection
@@ -67,7 +67,7 @@ public class RunnerLinearTasks {
 
                     data = new Data();
 
-                    System.out.print("Enter the real number R of the form nnn,ddd: ");  //TODO: check
+                    System.out.print("Enter the real number R of the form nnn,ddd: ");
                     data.add(ioData.inPutDouble());  // put real number in collection
 
                     ExpressionService swap = new ExpressionService();
@@ -76,13 +76,13 @@ public class RunnerLinearTasks {
 
                     break;
                 case (33):    /*Enter any character and determine its ordinal number, as well as indicate the previous
-                and subsequent characters. */ //TODO: check for only one symbol
+                and subsequent characters. */
 
-                    System.out.println("Enter the symbol: ");
-
+                    System.out.print("Enter the only one symbol: ");
                     ExpressionService symbol = new ExpressionService();
+
                     System.out.println("The ordinal number of the character in the Unicode table = " +
-                            symbol.findOrdinalNumberOfSymbol(ioData.inPutSymbol()));
+                            symbol.findOrdinalNumberOfSymbol(ioData.inPutOneSymbol()));
                     System.out.println("The previous symbol is: " + symbol.displayPreviousCharacter());
                     System.out.println("The next symbol is: " + symbol.displayNextCharacter());
 
@@ -94,6 +94,6 @@ public class RunnerLinearTasks {
                     break;
             }
         } while (taskNumber != 0);
-        System.out.println("You had left from program");
+        System.out.println("You had left from linear tasks");
     }
 }

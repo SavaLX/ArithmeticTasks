@@ -9,9 +9,9 @@ public class ExpressionService {
         return (x * 1000) % 1000 + (int) x / 1000.0;
     }
 
-    public int findOrdinalNumberOfSymbol(String x) { // Determines the ordinary number of character in the table Unicode
+    public double findOrdinalNumberOfSymbol(String x) { // Determines the ordinary number of character in the table Unicode
         data.add(x.charAt(0));
-        return (x.charAt(0));
+        return (data.get(0));
     }
 
     public char displayPreviousCharacter() {   // Determines the previous character in the table Unicode
@@ -41,10 +41,12 @@ public class ExpressionService {
     }
 
     public String determineGender(String x) {  // determines the gender of the user
-        if (x.equals("B")) {
+        if (x.equalsIgnoreCase("B")) {
             return "I like boys";
-        } else {
+        } else if (x.equalsIgnoreCase("G")) {
             return "I like girls";
+        } else {
+            return "Incorrect data";
         }
     }
 
@@ -119,6 +121,29 @@ public class ExpressionService {
             n /= 10;
         }
         return m;
+    }
+
+    public void swapEnteredNumbersFirstWay(int a, int b) {
+        System.out.println("a = " + a + " b = " + b);
+        int temp;
+        temp = a;
+        a = b;
+        b = temp;
+        System.out.println("a = " + a + " b = " + b);
+    }
+
+    public void swapEnteredNumbersSecondWay(int a, int b) {
+        System.out.println("a = " + a + " b = " + b);
+        a = a + b - (b = a);
+        System.out.println("a = " + a + " b = " + b);
+    }
+
+    public void swapEnteredNumbersThirdWay(int a, int b) {
+        System.out.println("a = " + a + " b = " + b);
+        a = a ^ b;
+        b = b ^ a;
+        a = a ^ b;
+        System.out.println("a = " + a + " b = " + b);
     }
 }
 

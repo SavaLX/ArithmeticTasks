@@ -1,56 +1,47 @@
 package by.putseta.task01.view;
 
+import by.putseta.task01.validation.Validation;
+
 import java.util.Scanner;
 
 public class IoData {
 
-    private static final String ONE_MORE_TIME = "Please, try again: ";
-    private static final String INCORRECT_DATA = "Incorrect data";
+    private static final String INCORRECT_DATA = "Incorrect data please, try again: ";
+    private final Validation validation = new Validation();
+    private final Scanner scanner = new Scanner(System.in);
+
 
     public int inPutInt() {  // method for entering only integers
-        Scanner sc = new Scanner(System.in);
-        int input;
-        while (!sc.hasNextInt()) {
-            System.out.println(INCORRECT_DATA);
-            sc.next();
-            System.out.print(ONE_MORE_TIME);
+        int res = validation.validateInputInt(scanner);
+        while (res == -1) {
+            res = validation.validateInputInt(scanner);
         }
-        input = sc.nextInt();
-        return input;
+        return res;
     }
 
     public double inPutDouble() { // method for entering fractions and integers
-        Scanner sc = new Scanner(System.in);
-        double input;
-        while (!sc.hasNextDouble()) {
-            System.out.println(INCORRECT_DATA);
-            sc.next();
-            System.out.print(ONE_MORE_TIME);
-        }
-        input = sc.nextDouble();
-        return input;
+        do {
+            validation.validateInputDouble(scanner);
+        } while (!validation.validateInputDouble(scanner));
+        return scanner.nextDouble();
     }
+
 
     public double inPutDoublePositive() { // method for entering positive fractions and integers
-        Scanner sc = new Scanner(System.in);
-
-        double a = sc.nextDouble();
-        while (a < 0) {
-            System.out.print("Enter A Positive Number: ");
-            a = sc.nextDouble();
+        double res = validation.validateInputPositiveDouble(scanner);
+        while (res == -1) {
+            res = validation.validateInputPositiveDouble(scanner);
         }
-        return a;
+        return res;
     }
 
-    public String inPutSymbol() {  // method for entering characters 'B' or 'G'
+    public String inPutOneSymbol() {  // method for entering only one symbol
         Scanner sc = new Scanner(System.in);
-        String input;
-        while (!sc.hasNextLine()) {
+        String str = sc.nextLine();
+        while (str.length() != 1) {
             System.out.println(INCORRECT_DATA);
-            sc.next();
-            System.out.print(ONE_MORE_TIME);
+            str = sc.nextLine();
         }
-        input = sc.nextLine();
-        return input;
+        return str;
     }
 }

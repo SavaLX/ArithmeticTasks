@@ -17,7 +17,7 @@ public class RunnerBranchingTasks {
                 "you want to solve");
 
         do {
-            System.out.print("Enter number of task or enter the 0 to exit from program: ");
+            System.out.print("Enter number of task or enter the 0 to exit from branching task and go to cycles tasks: ");
             taskNumber = ioData.inPutInt();
             switch (taskNumber) {
                 case (5):   /* Make a program: determining the smallest of two numbers a and b. */
@@ -72,10 +72,10 @@ public class RunnerBranchingTasks {
                  a girl? Enter B or G ". V Depending on the answer, the text "I like girls! should appear on the screen
                   or "I like boys!"  */
 
-                    data = new Data();  //TODO: check
+                    data = new Data();
 
-                    System.out.print("Who are you: boy or girl? Enter B or G");
-                    data.addString(ioData.inPutSymbol());  // put entered letter in collection
+                    System.out.println("Who are you: boy or girl? Enter B or G");
+                    data.addString(ioData.inPutOneSymbol());  // put entered letter in collection
 
                     ExpressionService flatterer = new ExpressionService();
                     System.out.println(flatterer.determineGender(data.getString(0)));
@@ -103,6 +103,6 @@ public class RunnerBranchingTasks {
                     break;
             }
         } while (taskNumber != 0);
-        System.out.println("You had left from program");
+        System.out.println("You had left from branching tasks");
     }
 }

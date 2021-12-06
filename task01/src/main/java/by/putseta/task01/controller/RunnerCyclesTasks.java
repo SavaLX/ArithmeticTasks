@@ -16,7 +16,7 @@ public class RunnerCyclesTasks {
                 "you want to solve");
 
         do {
-            System.out.print("Enter number of task or enter the 0 to exit from program: ");
+            System.out.print("Enter number of task or enter the 0 to exit from cycles task and exit the program: ");
             taskNumber = ioData.inPutInt();
             switch (taskNumber) {
                 case (5):   /* Use the while statement to write a program for determining the sum of all odd numbers in
@@ -69,8 +69,8 @@ public class RunnerCyclesTasks {
 
                     data = new Data();
 
-                    System.out.println("Enter the number: ");
-                    data.add(ioData.inPutDoublePositive());  // put entered number in collection
+                    System.out.print("Enter the number: ");
+                    data.add(ioData.inPutInt());  // put entered number in collection
 
                     ExpressionService largestDigit = new ExpressionService();
                     System.out.println("The largest digit in number = " + largestDigit.findLargestDigitInNumber((int) data.get(0)));

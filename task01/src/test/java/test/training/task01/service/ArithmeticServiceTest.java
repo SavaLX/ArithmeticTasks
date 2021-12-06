@@ -19,8 +19,8 @@ public class ArithmeticServiceTest {
         };
     }
 
-    @Test(description = "check for finding the arithmetic value with positive numbers", dataProvider = "dataForCalculatingAverageValue")
-    public void checkDataForCalculatingAverageValue(double arg[], double expected) {
+    @Test(description = "check for finding the arithmetic average value", dataProvider = "dataForCalculatingAverageValue")
+    public void checkDataForCalculatingAverageValue(double[] arg, double expected) {
         double actual = arithmeticService.countAverageValue(arg[0], arg[1]);
         Assert.assertEquals(actual, expected);
     }
@@ -37,8 +37,8 @@ public class ArithmeticServiceTest {
         };
     }
 
-    @Test(description = "check for finding the arithmetic value with positive numbers", dataProvider = "dataForCalculatingResultOfFunction")
-    public void countExpressionModule(double arg[], double expected) {
+    @Test(description = "check for finding the value of expression module", dataProvider = "dataForCalculatingResultOfFunction")
+    public void countExpressionModule(double[] arg, double expected) {
         double actual = arithmeticService.countExpressionModule(arg[0], arg[1], arg[2], arg[3]);
         Assert.assertEquals(actual, expected);
     }
