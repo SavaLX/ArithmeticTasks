@@ -21,24 +21,24 @@ public class RunnerBranchingTasks {
         Data data;
         int taskNumber;
 
-        System.out.println("Now you can choose which of 5 branching tasks ( Available tasks : № 5 , 7, 19, 21, 33) " +
+        ioData.outPutInfoForUserNextLine("Now you can choose which of 5 branching tasks ( Available tasks : № 5 , 7, 19, 21, 33) " +
                 "you want to solve");
 
         do {
-            System.out.print("Enter number of task or enter the 0 to exit from branching task and go to cycles tasks: ");
+            ioData.outPutInfoForUser("Enter number of task or enter the 0 to exit from branching task and go to cycles tasks: ");
             taskNumber = ioData.inPutInt();
             switch (taskNumber) {
                 case (5):   /* Make a program: determining the smallest of two numbers a and b. */
 
                     data = new Data();
 
-                    System.out.print("Enter the first number: ");
+                    ioData.outPutInfoForUser("Enter the first number: ");
                     data.add(ioData.inPutDouble()); // put first number in collection
-                    System.out.print("Enter the second number: ");
+                    ioData.outPutInfoForUser("Enter the second number: ");
                     data.add(ioData.inPutDouble()); // put second number in collection
 
                     ExpressionService smallerNumber = new ExpressionService();
-                    System.out.println("The smaller number = " + smallerNumber.findSmallerNumber(data.get(0), data.get(1)));
+                    ioData.outPutInfoForUserNextLine("The smaller number = " + smallerNumber.findSmallerNumber(data.get(0), data.get(1)));
 
                     break;
                 case (7):    /* Create a program for finding the modulus of expression a * x * x + b * x + c
@@ -46,17 +46,17 @@ public class RunnerBranchingTasks {
 
                     data = new Data();
 
-                    System.out.print("Enter the value of 'a': ");
+                    ioData.outPutInfoForUser("Enter the value of 'a': ");
                     data.add(ioData.inPutDouble());  // put value 'a' in collection
-                    System.out.print("Enter the value of 'b': ");
+                    ioData.outPutInfoForUser("Enter the value of 'b': ");
                     data.add(ioData.inPutDouble());  // put value 'b' in collection
-                    System.out.print("Enter the value of 'c': ");
+                    ioData.outPutInfoForUser("Enter the value of 'c': ");
                     data.add(ioData.inPutDouble());  // put value 'c' in collection
-                    System.out.print("Enter the value of 'x': ");
+                    ioData.outPutInfoForUser("Enter the value of 'x': ");
                     data.add(ioData.inPutDouble());  // put value 'x' in collection
 
                     ArithmeticService module = new ArithmeticService();
-                    System.out.println("The result of expression module = " + module.countExpressionModule(data.get(0),
+                    ioData.outPutInfoForUserNextLine("The result of expression module = " + module.countExpressionModule(data.get(0),
                             data.get(1), data.get(2), data.get(3)));
 
                     break;
@@ -64,15 +64,15 @@ public class RunnerBranchingTasks {
 
                     data = new Data();
 
-                    System.out.print("Enter the value of 'a': ");
+                    ioData.outPutInfoForUser("Enter the value of 'a': ");
                     data.add(ioData.inPutDouble());  // put value 'a' in collection
-                    System.out.print("Enter the value of 'b': ");
+                    ioData.outPutInfoForUser("Enter the value of 'b': ");
                     data.add(ioData.inPutDouble());  // put value 'b' in collection
-                    System.out.print("Enter the value of 'c': ");
+                    ioData.outPutInfoForUser("Enter the value of 'c': ");
                     data.add(ioData.inPutDouble());  // put value 'c' in collection
 
                     ExpressionService positiveCount = new ExpressionService();
-                    System.out.println("The number of positive numbers = " + positiveCount.countPositiveNumbers(data.get(0),
+                    ioData.outPutInfoForUserNextLine("The number of positive numbers = " + positiveCount.countPositiveNumbers(data.get(0),
                             data.get(1), data.get(2)));
 
                     break;
@@ -82,11 +82,11 @@ public class RunnerBranchingTasks {
 
                     data = new Data();
 
-                    System.out.println("Who are you: boy or girl? Enter B or G");
+                    ioData.outPutInfoForUserNextLine("Who are you: boy or girl? Enter B or G");
                     data.addString(ioData.inPutOneSymbol());  // put entered letter in collection
 
                     ExpressionService flatterer = new ExpressionService();
-                    System.out.println(flatterer.determineGender(data.getString(0)));
+                    ioData.outPutInfoForUserNextLine(flatterer.determineGender(data.getString(0)));
 
                     break;
                 case (33):    /*  Write a program that, using a password, will determine the employee's level of access
@@ -97,20 +97,20 @@ public class RunnerBranchingTasks {
 
                     data = new Data();
 
-                    System.out.print("Enter the password: ");
+                    ioData.outPutInfoForUser("Enter the password: ");
                     data.add(ioData.inPutDouble());  // put entered password(number) in collection
 
                     ExpressionService levelAccess = new ExpressionService();
-                    System.out.println("Your level of access = " + levelAccess.definitionOfAccessLevel(data.get(0)));
+                    ioData.outPutInfoForUserNextLine("Your level of access = " + levelAccess.definitionOfAccessLevel(data.get(0)));
 
                     break;
                 case (0):
                     break;
                 default:
-                    System.out.println("This task doesn't exist");
+                    ioData.outPutInfoForUserNextLine("This task doesn't exist");
                     break;
             }
         } while (taskNumber != 0);
-        System.out.println("You had left from branching tasks");
+        ioData.outPutInfoForUserNextLine("You had left from branching tasks");
     }
 }

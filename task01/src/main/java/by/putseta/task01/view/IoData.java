@@ -42,9 +42,17 @@ public class IoData {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         while (str.length() != 1) {
-            System.out.println(INCORRECT_DATA);
+            outPutInfoForUser(INCORRECT_DATA);
             str = sc.nextLine();
         }
         return str;
+    }
+
+    public void outPutInfoForUser(String str) {
+        System.out.print(str);
+    }
+
+    public void outPutInfoForUserNextLine(String str) {
+        System.out.println(str);
     }
 }

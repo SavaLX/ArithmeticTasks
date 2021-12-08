@@ -1,6 +1,7 @@
 package by.putseta.task01.service;
 
 import by.putseta.task01.entity.Data;
+import by.putseta.task01.view.IoData;
 
 /**
  * Class for solving different expression tasks
@@ -117,28 +118,27 @@ public class ExpressionService {
     /**
      * Method for finding the sum of odd numbers from 1 to 99
      *
+     * @param max the value to which the expression needs to be calculated
      * @return the sum of odd numbers from 1 to 99
      */
-    public int findSumOfOddNumbers() {   // finds the sum of odd numbers from 1 to 99
-        int i = 1;
+    public int findSumOfOddNumbers(int max) {
         int sum = 0;
-        while (i < 100) {
+        for (int i = 1; i < max; i += 2) {
             sum = sum + i;
-            i += 2;
         }
         return sum;
     }
 
     public void calculateFunctionValues(double a, double b, double h) {  // finds the value of a function
+        IoData ioData = new IoData();
         double y;
-
         for (double i = a; i <= b; i += h) {
             if (i > 2) {
                 y = i;
             } else {
                 y = i * (-1);
             }
-            System.out.println("При х = " + i + " у = " + y);
+            ioData.outPutInfoForUserNextLine("При х = " + i + " у = " + y);
         }
     }
 
@@ -155,19 +155,20 @@ public class ExpressionService {
         return sum;
     }
 
-    public void calculateFunctionValues() { // finds the value of a function
+    public void calculateFunctionValues2() { // finds the value of a function
+        IoData ioData = new IoData();
         double a = 0.1;
         double b = 8;
         double h = 0.1;
         double y;
 
-        System.out.println(" -----------------------");
-        System.out.println("|     x     |     y     |");
+        ioData.outPutInfoForUser(" -----------------------");
+        ioData.outPutInfoForUser("|     x     |     y     |");
 
         for (double i = a; i <= b; i += h) {
 
             y = i - Math.sin(i);
-            System.out.println(" -----------------------");
+            ioData.outPutInfoForUserNextLine(" -----------------------");
             System.out.printf("|%-11f|%-11f|\n", i, y);
         }
     }
@@ -184,26 +185,29 @@ public class ExpressionService {
     }
 
     public void swapEnteredNumbersFirstWay(int a, int b) {
-        System.out.println("a = " + a + " b = " + b);
+        IoData ioData = new IoData();
+        ioData.outPutInfoForUserNextLine("a = " + a + " b = " + b);
         int temp;
         temp = a;
         a = b;
         b = temp;
-        System.out.println("a = " + a + " b = " + b);
+        ioData.outPutInfoForUserNextLine("a = " + a + " b = " + b);
     }
 
     public void swapEnteredNumbersSecondWay(int a, int b) {
-        System.out.println("a = " + a + " b = " + b);
+        IoData ioData = new IoData();
+        ioData.outPutInfoForUserNextLine("a = " + a + " b = " + b);
         a = a + b - (b = a);
-        System.out.println("a = " + a + " b = " + b);
+        ioData.outPutInfoForUserNextLine("a = " + a + " b = " + b);
     }
 
     public void swapEnteredNumbersThirdWay(int a, int b) {
-        System.out.println("a = " + a + " b = " + b);
+        IoData ioData = new IoData();
+        ioData.outPutInfoForUserNextLine("a = " + a + " b = " + b);
         a = a ^ b;
         b = b ^ a;
         a = a ^ b;
-        System.out.println("a = " + a + " b = " + b);
+        ioData.outPutInfoForUserNextLine("a = " + a + " b = " + b);
     }
 }
 

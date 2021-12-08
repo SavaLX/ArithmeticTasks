@@ -9,14 +9,13 @@ public class RunnerCyclesTasks {
 
     public void runCyclesTask() {
 
-        Data data;
         int taskNumber;
 
-        System.out.println("And finally you can choose which of 5 cycles tasks ( Available tasks : № 5 , 7, 19, 21, 33) " +
+        ioData.outPutInfoForUserNextLine("And finally you can choose which of 5 cycles tasks ( Available tasks : № 5 , 7, 19, 21, 33) " +
                 "you want to solve");
 
         do {
-            System.out.print("Enter number of task or enter the 0 to exit from cycles task and exit the program: ");
+            ioData.outPutInfoForUser("Enter number of task or enter the 0 to exit from cycles task and exit the program: ");
             taskNumber = ioData.inPutInt();
             switch (taskNumber) {
                 case (5):   /* Use the while statement to write a program for determining the sum of all odd numbers in
@@ -24,21 +23,22 @@ public class RunnerCyclesTasks {
 
                     ExpressionService oddNumber = new ExpressionService();
 
-                    System.out.println("Sum of odd numbers from 1 to 99 =" + oddNumber.findSumOfOddNumbers());
+                    ioData.outPutInfoForUserNextLine("Sum of odd numbers from 1 to 99 =" + oddNumber.findSumOfOddNumbers(100));
 
                     break;
                 case (7):   /* Calculate the values of the function on the segment [a, b] with step h:  */
 
-                    data = new Data();
+                    Data data = new Data();
 
-                    System.out.print("Enter the value of 'a': ");
+                    ioData.outPutInfoForUser("Enter the value of 'a': ");
                     data.add(ioData.inPutDouble());  // put value 'a' in collection
-                    System.out.print("Enter the value of 'b': ");
+                    ioData.outPutInfoForUser("Enter the value of 'b': ");
                     data.add(ioData.inPutDouble());  // put value 'b' in collection
-                    System.out.print("Enter the value of 'h': ");
+                    ioData.outPutInfoForUser("Enter the value of 'h': ");
                     data.add(ioData.inPutDouble());  // put value 'h' in collection
 
                     ExpressionService function = new ExpressionService();
+                    System.out.println();
                     function.calculateFunctionValues(data.get(0), data.get(1), data.get(2));
 
                     break;
@@ -47,13 +47,13 @@ public class RunnerCyclesTasks {
 
                     data = new Data();
 
-                    System.out.print("Enter the value of 'e': ");
+                    ioData.outPutInfoForUser("Enter the value of 'e': ");
                     data.add(ioData.inPutDouble());  // put value 'e' in collection
-                    System.out.print("Enter the value of 'n': ");
+                    ioData.outPutInfoForUser("Enter the value of 'n': ");
                     data.add(ioData.inPutDouble());  // put value 'n' in collection
 
                     ExpressionService member = new ExpressionService();
-                    System.out.println("The sum = " + member.findSumOfMembersOfSeries(data.get(0),
+                    ioData.outPutInfoForUserNextLine("The sum = " + member.findSumOfMembersOfSeries(data.get(0),
                             data.get(1)));
 
                     break;
@@ -62,28 +62,28 @@ public class RunnerCyclesTasks {
                 argument, the second is the corresponding function values: F (x) = x - sin (x)   */
 
                     ExpressionService functionValues = new ExpressionService();
-                    functionValues.calculateFunctionValues();
+                    functionValues.calculateFunctionValues2();
 
                     break;
                 case (33):   /* Find the largest digit of a given natural number.  */
 
                     data = new Data();
 
-                    System.out.print("Enter the number: ");
+                    ioData.outPutInfoForUser("Enter the number: ");
                     data.add(ioData.inPutInt());  // put entered number in collection
 
                     ExpressionService largestDigit = new ExpressionService();
-                    System.out.println("The largest digit in number = " + largestDigit.findLargestDigitInNumber((int) data.get(0)));
+                    ioData.outPutInfoForUserNextLine("The largest digit in number = " + largestDigit.findLargestDigitInNumber((int) data.get(0)));
 
                     break;
                 case (0):
                     break;
                 default:
-                    System.out.println("This task doesn't exist");
+                    ioData.outPutInfoForUserNextLine("This task doesn't exist");
                     break;
             }
         } while (taskNumber != 0);
-        System.out.println("You had left from program");
+        ioData.outPutInfoForUserNextLine("You had left from program");
     }
 
 
